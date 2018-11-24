@@ -22,6 +22,10 @@ d3.csv("data/weedData.csv", function(error, data) {
         d.MarijuanaCrimess = +d.MarijuanaCrimes;
     });
 
+    data.sort(function(a,b) {
+        b.MarijuanaCrimes - a.MarijuanaCrimess;
+    });
+
     //Create yScale
     var yScale = d3.scaleLinear()
         .range([height, 0])
