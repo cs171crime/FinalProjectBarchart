@@ -23,7 +23,7 @@ d3.csv("data/weedData.csv", function(error, data) {
     });
 
     data.sort(function(a,b) {
-        b.MarijuanaCrimes - a.MarijuanaCrimes;
+        return b.MarijuanaCrimes - a.MarijuanaCrimes;
     });
 
     //Create yScale
@@ -54,14 +54,10 @@ d3.csv("data/weedData.csv", function(error, data) {
     var yAxis = d3.axisLeft(yScale);
     svg.append("g").call(yAxis);
 
-    sortedData = data.sort(function(a, b){
-        return b-a;
-    });
-
     //Draw in Bars - From Website Sourced at Header of File
     svg.selectAll()
     //Below Code to Sort not working?
-        .data(sortedData)
+        .data(data)
         .enter()
         .append('rect')
         .attr('x', (d) => xScale(d.neighborhood))
