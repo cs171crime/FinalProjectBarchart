@@ -19,11 +19,11 @@ d3.csv("data/weedData.csv", function(error, data) {
 
     //Go through data, convert 'string' to numerical data so as to visualize
     data.forEach(function (d) {
-        d.MarijuanaCrimess = +d.MarijuanaCrimes;
+        d.MarijuanaCrimes = +d.MarijuanaCrimes;
     });
 
     data.sort(function(a,b) {
-        b.MarijuanaCrimes - a.MarijuanaCrimess;
+        b.MarijuanaCrimes - a.MarijuanaCrimes;
     });
 
     //Create yScale
@@ -40,7 +40,15 @@ d3.csv("data/weedData.csv", function(error, data) {
 
     //Create xAxis
     var xAxis = d3.axisBottom(xScale);
-    svg.append("g").attr("transform","translate(0," + height + ")").call(xAxis);
+
+    svg.append("g")
+        .attr("transform","translate(0," + height + ")")
+        .call(xAxis)
+        .selectAll("text")
+        .attr("transform", "rotate(-70)")
+        .attr("dx", "-.8em")
+        .attr("dy",".25em")
+        .style("text-anchor", "end");
 
     //Create yAxis
     var yAxis = d3.axisLeft(yScale);

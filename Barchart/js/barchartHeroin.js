@@ -41,7 +41,15 @@ d3.csv("data/heroinData.csv", function(error, data) {
 
     //Create xAxis
     var xAxis = d3.axisBottom(xScale);
-    svg.append("g").attr("transform","translate(0," + height + ")").call(xAxis);
+
+    svg.append("g")
+        .attr("transform","translate(0," + height + ")")
+        .call(xAxis)
+        .selectAll("text")
+        .attr("transform", "rotate(-70)")
+        .attr("dx", "-.8em")
+        .attr("dy",".25em")
+        .style("text-anchor", "end");
 
     //Create yAxis
     var yAxis = d3.axisLeft(yScale);
