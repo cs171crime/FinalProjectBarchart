@@ -15,6 +15,12 @@ var svg = d3.select("#chart-area").append("svg")
     .append("g")
     .attr("transform", "translate(60,60)");
 
+const barGroups = svg.selectAll()
+    .data(data)
+    .enter()
+    .append('g');
+
+
 //Load Data (Check to see if data/heroinData notation is correct!)
 d3.csv("data/weedData.csv", function(error, data) {
 
@@ -68,6 +74,7 @@ d3.csv("data/weedData.csv", function(error, data) {
         .attr('y', (d) => yScale(d.MarijuanaCrimes))
         .attr('height', (d) => height - yScale(d.MarijuanaCrimes))
         .attr('width', xScale.bandwidth());
+
 
     //Add Labels for y axis
     svg.append('text')
