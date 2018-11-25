@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>CS171 - HW2</title>
+	<title>CS171 - Barchart</title>
 
 	<!-- Load CSS libraries -->
 	<link rel="stylesheet" href="css/bootstrap.min.css">
@@ -16,9 +16,15 @@
 <!-- ********************** ADD YOUR HTML-ELEMENTS HERE *********************** -->
 <!-- Make sure to include a div-container with the id: 'chart-area' -->
 
+<select class="form-control input-lg" id="selector" onchange="updateVisualization()">
+	<ul class="dropdown" >
+		<li > <option value="Heroin">Heroin</option></li>
+		<li> <option value="Marijuana">Marijuana</option></li>
+	</ul>
+	<div id="barchart"></div>
+</select>
+
 <div align = "center" id="chart-area"></div>
-
-
 
 <!-- Load JS libraries: jQuery, bootstrap, D3, D3 Tooltips -->
 <script src="js/jquery.min.js"></script>
@@ -28,7 +34,7 @@
 
 <!-- Completed: data loading, bar chart rendering -->
 <!--<script src="js/barchartHeroin.js"></script>-->
-<script src="js/barchart.js"></script>
+<script src="js/barchartLatestDraft.js"></script>
 <!-- <script src="js/defunctBarchartImplementation.js"></script> -->
 
 <!-- ****** TODO: FILTER DATA, DISPLAY BAR CHART & KEY FIGURES ****** -->

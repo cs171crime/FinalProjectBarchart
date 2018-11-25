@@ -59,14 +59,14 @@ var makeVis = function(crimeMap) {
     svg.append("g")
         .attr("class", "x axis")
         .attr("transform","translate(0," + height + ")")
-        .call(xAxis)
-        .selectAll("text")
+        .call(xAxis);
+        /*.selectAll("text")
         .attr("transform", "rotate(-70)")
         .attr("dx", "-.8em")
         .attr("dy",".25em")
         .style("text-anchor", "end")
         .style("font-size", "8px");
-
+*/
     // Create yAxis
     var yAxis = d3.axisLeft(yScale);
 
@@ -84,8 +84,8 @@ var makeVis = function(crimeMap) {
 
     var updateBars = function(data) {
         // First update the y-axis domain to match data
-        yScale.domain( d3.extent(data) );
-        yAxisHandleForUpdate.call(yAxis);
+        // yScale.domain( d3.extent(data) );
+        // yAxisHandleForUpdate.call(yAxis);
 
         var bars = svg.selectAll(".bar").data(data);
 
@@ -121,7 +121,7 @@ var makeVis = function(crimeMap) {
     // Handler for dropdown value change
     var dropdownChange = function() {
         var newCrime = d3.select(this).property('value'),
-            newData   = crimeMap[newCrime];
+            newData = crimeMap[newCrime];
         updateBars(newData);
     };
 
