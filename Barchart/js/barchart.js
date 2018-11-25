@@ -79,7 +79,7 @@ svg.append('text')
     .attr('y', -45)
     .attr('transform', 'rotate(-90)')
     .attr('text-anchor', 'middle')
-    .text('Marijuana Crimes');
+    .text('Crimes');
 
 //Add Labels for x axis (Need to play around with to align correctly)
 svg.append('text')
