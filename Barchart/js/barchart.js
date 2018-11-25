@@ -73,6 +73,22 @@ svg.append("g")
     .call(yAxis)
     .style("font-size", "8px");
 
+//Add Labels for y axis (Need to play around with to align correctly)
+svg.append('text')
+    .attr('x', -220)
+    .attr('y', -45)
+    .attr('transform', 'rotate(-90)')
+    .attr('text-anchor', 'middle')
+    .text('Marijuana Crimes');
+
+//Add Labels for x axis (Need to play around with to align correctly)
+svg.append('text')
+    .attr('x', width / 2 + margin)
+    .attr('y', 700)
+    .attr('text-anchor', 'middle')
+    .text('Neighborhood')
+    .style("font-size", "20px");
+
 loadData();
 
 Object.defineProperty(window, 'data', {
